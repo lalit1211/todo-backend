@@ -1,0 +1,23 @@
+{
+  "name": "todo-backend",
+  "version": "1.0.0",
+  "description": "todo backend with MongoDB",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "s": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "lalit1211",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "4.1.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongoose": "^6.3.6",
+    "nodemodule": "^0.3.0",
+    "nodemon": "^2.0.16",
+    "validator": "^13.7.0"
+  }
+}
