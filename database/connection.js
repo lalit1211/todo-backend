@@ -17,7 +17,7 @@ mongoose.connect(
 );
 
 mongoose.connection.on('open', () => {
-	_('connected to mongoDB');
+	_("--->> Connected to mongoDB");
 });
 
 mongoose.connection.on('error', () => {

@@ -4,11 +4,12 @@ const dotenv = require('dotenv');
 const chalk = require('chalk');
 require('./database/connection');
 const todoController = require('./controllers/todo.controller');
-const { addTodo, getTodo, deleteTodo } = todoController;
+const { addTodo, getTodo, deleteTodo, updateTodo } =
+	todoController;
 
 // * configuring path of the .env file
 dotenv.config({
-	path: './config.env',
+	path: "./config.env",
 });
 const { PORT } = process.env;
 global.__ = console.log;
@@ -23,7 +24,7 @@ app.use(express.json());
 
 app.use(
 	cors({
-		origin: '*',
+		origin: "*",
 	}),
 );
 
@@ -35,9 +36,10 @@ app.use(
 // 	next();
 // });
 // *===============================================
-app.post('/', addTodo);
-app.get('/', getTodo);
-app.delete('/', deleteTodo);
+app.post("/", addTodo);
+app.get("/", getTodo);
+app.delete("/", deleteTodo);
+app.patch("/", updateTodo);
 
 // * server listening
 app.listen(PORT, () => {

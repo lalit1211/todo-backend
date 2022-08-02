@@ -36,12 +36,13 @@ const getTodo = async (req, res) => {
 };
 
 const deleteTodo = async (req, res) => {
-	const { id } = req;
+	const { id } = req.query;
+	_(id);
 
 	const del = await Todo.findByIdAndDelete(id);
 
 	res.status(200).json({
-		status: 'success',
+		status: "success",
 		message: `Todo with id ${id} deleted Successfully`,
 	});
 };
@@ -55,6 +56,13 @@ const updateTodo = async (req, res) => {
 		body,
 		{ new: true },
 	);
+
+	console.log(todoUpdate);
+	res.status(200).json({
+		status: "success",
+		message: `Todo with id ${id} updated , successfully`,
+		data: todoUpdate,
+	});
 };
 
 // * module export
@@ -62,4 +70,5 @@ module.exports = {
 	addTodo,
 	getTodo,
 	deleteTodo,
+	updateTodo,
 };
